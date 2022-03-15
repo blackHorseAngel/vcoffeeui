@@ -1,12 +1,12 @@
 <template>
-    <div>
-<!--      Hello World!-->
-    </div>
+  <div>
+    账户页面
+  </div>
 </template>
 
 <script>
     export default {
-        name: "AppIndex"
+        name: "Account"
     }
 </script>
 
