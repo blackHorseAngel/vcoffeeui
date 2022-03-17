@@ -11,9 +11,7 @@
       <el-form-item>
         <el-button type="primary" style="width: 30%;background: #505458;border: none" v-on:click="login">登录</el-button>
         <el-button type="primary" style="width: 30%;background: #505458;border: none" v-on:click="reset">重置</el-button>
-      </el-form-item>
-      <el-form-item>
-        <router-link to="register">注册</router-link>
+        <el-button type="primary" style="width: 30%;background: #505458;border: none" v-on:click="register">注册</el-button>
       </el-form-item>
     </el-form>
   </body>
@@ -41,8 +39,14 @@
       }
     },
     methods:{
+      register(){
+        this.$router.replace({path:'/register'});
+      },
       reset(){
-        this.$router.replace({path:'/login'})
+        this.loginForm = {};
+        this.$nextTick(() => {
+          this.$refs[loginForm].resetFields();
+        });
       },
 
       login () {
@@ -67,8 +71,9 @@
              }
           })
           .catch(failResponse =>{
-            console.log("错误信息是：" + failResponse);
-              this.$router.replace({path:'/error'})
+            console.error("登录时报错，错误信息是：" + failResponse);
+            this.$message.error("登录时报错，错误信息是：" + failResponse.data.message);
+            this.$router.replace({path:'/error'})
           })
       }
     }

@@ -90,11 +90,16 @@
 
         })
         .catch(failResponse => {
+          console.error("注册时报错，错误信息是："+failResponse);
+          this.$message.error("注册时报错，错误信息是："+failResponse.data.message);
           this.$router.replace({path:'/register'});
         })
       },
       reset() {
-        this.$router.replace({path:'/register'})
+        this.ruleForm = {};
+        this.$nextTick(() => {
+          this.$refs[ruleForm].resetFields();
+        });
       }
     }
   }
