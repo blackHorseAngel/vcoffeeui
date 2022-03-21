@@ -3,10 +3,10 @@
     <el-form :model="loginForm" :rules="rules" ref="loginForm"  class="login_container" label-position="left" label-width="0px">
       <h3 class="login_title">系统登录</h3>
       <el-form-item prop="username">
-        <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="账号"/>
+        <el-input type="text" v-model="loginForm.username"  placeholder="账号"/>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"/>
+        <el-input type="password" v-model="loginForm.password" placeholder="密码"/>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" style="width: 30%;background: #505458;border: none" v-on:click="login">登录</el-button>

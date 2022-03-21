@@ -12,6 +12,8 @@ import User from "@/components/user/User";
 import Equipment from "@/components/equipment/Equipment";
 import Account from "@/components/account/Account";
 import Consume from "@/components/consume/Consume";
+import Logout from "@/components/logout/Logout";
+import AddCompany from "@/components/company/AddCompany";
 // import HelloWorld from '@/components/HelloWorld'
 
 
@@ -51,7 +53,14 @@ export default new Router({
         {
           path: '/company',
           name: 'Company',
-          component: Company
+          component: Company,
+          children:[
+            {
+              path:'/company',
+              name:'AddCompany',
+              component:Company,
+            }
+          ]
         },
         {
           path: '/user',
@@ -72,6 +81,11 @@ export default new Router({
           path:'/consume',
           name: 'Consume',
           component: Consume
+        },
+        {
+          path: '/logout',
+          name: '/Logout',
+          component: Logout
         }
       ]
     },
